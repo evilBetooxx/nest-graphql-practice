@@ -15,5 +15,5 @@ export class Post {
 
     @Column({type: 'text', nullable: true})
     @Field({nullable: true})
-    conetent?: string
+    content?: string
 }
