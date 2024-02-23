@@ -34,4 +34,8 @@ export class PostsService {
   async getUser(userId: number): Promise<User> {
     return this.userService.findOne(userId);
   }
+
+  postAdded() {
+    return this.postsRepository.find();
+  }
 }

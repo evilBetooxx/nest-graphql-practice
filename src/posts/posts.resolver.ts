@@ -1,4 +1,4 @@
-import { Args, Int, Parent, ResolveField, Resolver } from '@nestjs/graphql';
+import { Args, Int, Parent, ResolveField, Resolver, Subscription } from '@nestjs/graphql';
 import { PostsService } from './posts.service';
 import { Query, Mutation } from '@nestjs/graphql';
 import { Post } from './entities/post.entity';
@@ -28,5 +28,10 @@ export class PostsResolver {
     @Mutation((returns) => Post)
     createPost(@Args('postInput') postInput: CreatePostInput) {
         return this.postService.createPost(postInput)
+    }
+
+    @Subscription((returns) => Post, {})
+    postAdded() {
+        return this.postService.postAdded()
     }
 }

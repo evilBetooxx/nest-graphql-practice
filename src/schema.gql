@@ -44,3 +44,7 @@ input UpdateUserInput {
   name: String
   id: Int!
 }
+
+type Subscription {
+  postAdded: Post!
+}

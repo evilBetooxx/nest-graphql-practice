@@ -13,6 +13,9 @@ import { UsersModule } from './users/users.module';
   imports: [
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
+      subscriptions: {
+        'graphql-ws': true,
+      },
       autoSchemaFile: join(process.cwd(), 'src/schema.gql')
     }),
     TypeOrmModule.forRoot({
